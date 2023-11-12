@@ -1,3 +1,4 @@
+import Footer from './components/footer'
 import Header from './components/header'
 import SearchFilter from './components/searchFilter'
 
@@ -16,6 +17,7 @@ function App() {
           <SearchFilter></SearchFilter>
         </div>
       </div>
+      <Footer></Footer>
     </>
   )
 }
