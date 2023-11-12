@@ -58,6 +58,9 @@
   }
   body {
     font-family: Montserrat, sans-serif;
+    color: #212529;
+    font-weight: 500;
+    background: #f6f4f4;
     @apply bg-background text-foreground;
   }
 }
