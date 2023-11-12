@@ -31,6 +31,9 @@ import { Popover, PopoverContent, PopoverTrigger } from '../ui/Popover'
 import { RadioGroup, RadioGroupItem } from '../ui/RadioGroup'
 import { Slider } from '../ui/Slider'
 import { toast } from '../ui/UseToast'
+import GridView from './GridView'
+import ListView from './ListView'
+import VehicleStats from './VehicleStats'
 
 const FormSchema = z.object({
   make: z.string({
@@ -1079,8 +1082,31 @@ const Index = () => {
         </form>
       </Form>
 
+      {/* Vehicle Stats */}
+      <VehicleStats></VehicleStats>
+
       {/* Average Price Box */}
-      <div className="mb-[15px] shadow-[0_0_10px_rgb(221,221,221)]"></div>
+      <div className="mb-[15px] shadow-[0_0_10px_rgb(221,221,221)] px-4 py-[0.4rem] text-sm bg-[#ff5a60] text-white flex justify-center items-center">
+        <div>Need a Prices People Pay Valuation Report?</div>
+        <a
+          href="https://pricespeoplepay.com.au/valuation-report"
+          className="text-[#ff5a60] px-[1.5rem] py-[0.2rem] ml-[0.5rem] bg-white rounded-[5rem]"
+        >
+          Get One Now
+        </a>
+      </div>
+
+      {/* List View */}
+      <ListView></ListView>
+
+      {/* Grid View */}
+      <GridView></GridView>
+
+      <div className="flex justify-center p-6">
+        <Button className="px-[1.8rem] py-[0.8rem] rounded-[0.2rem] text-base text-white bg-[#00a0df] border border-[#00a0df] shadow-[inset_0_1px_0_rgba(255,255,255,0.15),_0_1px_1px_rgba(0,0,0,0.075)] font-normal hover:bg-[#0085b9] hover:border-[#0085b9]">
+          Load More
+        </Button>
+      </div>
     </>
   )
 }
