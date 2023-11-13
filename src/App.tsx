@@ -1,6 +1,6 @@
-import Footer from './components/footer'
-import Header from './components/header'
-import SearchFilter from './components/searchFilter'
+import Footer from './components/Footer'
+import Header from './components/Header'
+import SearchFilter from './components/searchFilter/SearchFilter'
 
 function App() {
   return (

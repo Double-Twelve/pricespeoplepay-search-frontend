@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import { navigationMenuItems } from '../../constants/navigationMenuItems'
-import { Button } from '../ui/Button'
+import { navigationMenuItems } from '../constants/navigationMenuItems'
+import { Button } from './ui/Button'
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-} from '../ui/NavigationMenu'
+} from './ui/NavigationMenu'
 const Header = () => {
   const [mobileNavigationOpen, setMobileNavigationOpen] = useState(false)
 
