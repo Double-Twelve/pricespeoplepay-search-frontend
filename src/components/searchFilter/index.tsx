@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useWindowSize } from 'usehooks-ts'
 import { Button } from '../ui/Button'
 import Filter from './Filter'
 import GridView from './GridView'
@@ -10,6 +11,7 @@ const Index = () => {
   const [filteredCars, setFilteredCars] = useState([])
   const [filteredCarsStats, setFilteredCarsStats] = useState()
   const [displayMode, setDisplayMode] = useState('list')
+  const { width, height } = useWindowSize()
 
   return (
     <>
@@ -30,8 +32,18 @@ const Index = () => {
         ></VehicleStats>
       )}
 
+      <Button
+        onClick={() =>
+          (window.location.href =
+            'https://pricespeoplepay.com.au/pricing?make=ABAR&model=124')
+        }
+        className="block lg:hidden w-full bg-[#00a0df] font-semibold px-3 py-[0.375rem] text-[1rem] leading-6 text-white rounded-[0.2rem] mb-[15px]"
+      >
+        Subscribe to Generate Summary Report
+      </Button>
+
       {/* Average Price Box */}
-      <div className="mb-[15px] shadow-[0_0_10px_rgb(221,221,221)] px-4 py-[0.4rem] text-sm bg-[#ff5a60] text-white flex justify-center items-center">
+      <div className="mb-[15px] shadow-[0_0_10px_rgb(221,221,221)] px-4 py-[0.4rem] text-sm bg-[#ff5a60] text-white flex justify-center items-center flex-col md:flex-row">
         <div>Need a Prices People Pay Valuation Report?</div>
         <a
           href="https://pricespeoplepay.com.au/valuation-report"
@@ -53,12 +65,13 @@ const Index = () => {
 
       {/* List View */}
       {displayMode === 'list' &&
+        width > 1024 &&
         filteredCars?.map((item) => {
           return <ListView car={item}></ListView>
         })}
 
       {/* Grid View */}
-      {displayMode === 'grid' && (
+      {(displayMode === 'grid' || width <= 1024) && (
         <div className="flex flex-wrap -mx-[10px]">
           {filteredCars?.map((item) => {
             return <GridView car={item}></GridView>

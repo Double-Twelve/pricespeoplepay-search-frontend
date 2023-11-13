@@ -7,9 +7,9 @@ function App() {
     <>
       <Header></Header>
       <div className="w-full max-w-[1200px] px-[10px] mx-auto">
-        <div className="w-full pt-[0.8rem] pb-12 min-h-[70vh]">
+        <div className="w-full pt-[1rem] lg:pt-[0.8rem] pb-12 min-h-[70vh]">
           {/* page title */}
-          <h1 className="mb-2 color-[#212529] text-[2em] font-bold">
+          <h1 className="mb-5 md:mb-2 color-[#212529] text-[20px] md:text-[30px] lg:text-[2em] font-bold">
             Search Used Car Prices
           </h1>
 

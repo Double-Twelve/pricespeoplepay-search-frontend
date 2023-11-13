@@ -6,7 +6,7 @@ interface Props {
 
 const GridView = ({ car }: Props) => {
   return (
-    <div className="mb-[30px] px-[10px] grow-0 shrink-0 basis-1/3 max-w-[33.33333%]">
+    <div className="mb-[30px] px-[10px] grow-0 shrink-0 basis-full md:basis-1/2 lg:basis-1/3 max-w-full md:max-w-[50%] lg lg:max-w-[33.33333%]">
       <div className=" flex-col p-[15px] bg-white rounded-[5px] shadow-[0_0_5px_rgb(0,0,0,0.05)] flex justify-between min-h-[200px]">
         <div>
           <h2 className="mb-2 text-sm font-normal">

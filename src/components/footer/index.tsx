@@ -1,9 +1,9 @@
 const Index = () => {
   return (
     <div className="mt-10 py-[1.5rem] border-t border-t-[#dddddd]">
-      <div className="w-full max-w-[1200px] mx-auto flex items-center">
+      <div className="w-full max-w-[1200px] mx-auto flex items-center flex-col md:flex-row">
         {/* Footer Links */}
-        <div className="grow-0 shrink-0 basis-1/3 max-w-[33.33333%] px-[10px] text-[0.9rem] ">
+        <div className="grow-0 shrink-0 basis-full md:basis-1/3 max-w-full md:max-w-[33.33333%] px-[10px] text-[12.6px] md:text-[0.9rem] ">
           <a
             href="https://pricespeoplepay.com.au/sitemap"
             className="text-[#00a0df] no-underline"
@@ -27,8 +27,12 @@ const Index = () => {
         </div>
 
         {/* Footer Logo */}
-        <div className="flex grow-0 shrink-0 basis-1/3 max-w-[33.33333%] px-[10px] items-center justify-center">
-          <svg width="29px" height="49px" className="mr-4 -mt-3">
+        <div className="flex flex-col md:flex-row mt-6 md:mt-0 grow-0 shrink-0 basis-full md:basis-1/3 max-w-full md:max-w-[33.33333%] px-[10px] items-center justify-center order-3 md:order-2">
+          <svg
+            width="29px"
+            height="49px"
+            className="mr-4 -mt-3 mb-[15px] md:mb-0"
+          >
             <path
               fillRule="evenodd"
               fill="rgb(255, 90, 96)"
@@ -40,11 +44,13 @@ const Index = () => {
               d="M10.555,23.316 C10.555,23.316 8.032,24.928 9.169,22.349 C9.161,22.383 12.784,18.315 15.779,17.406 C15.844,17.387 15.924,17.445 15.987,17.428 C15.993,17.406 16.277,17.872 14.180,19.663 L14.713,20.307 C14.713,20.307 16.774,18.875 18.018,16.654 C18.018,16.654 18.729,15.043 29.000,13.861 L28.680,13.109 C28.680,13.109 22.567,13.467 19.298,14.935 C19.298,14.935 22.176,10.315 22.603,7.951 C22.603,7.951 24.167,3.546 24.202,0.107 L23.456,-0.000 C23.456,-0.000 22.994,5.802 20.577,10.422 C20.577,10.422 19.333,13.109 18.338,14.828 C18.342,14.779 18.211,15.507 15.430,16.481 C14.767,17.063 11.515,18.272 8.529,21.382 C8.529,21.382 6.823,23.638 8.743,24.820 C8.743,24.820 9.880,25.107 10.982,24.176 L10.555,23.316 Z"
             ></path>
           </svg>
-          <span>© 2023 Copyright Prices People Pay</span>
+          <span className="text-center lg:text-left text-[12px] md:text-[16px]">
+            © 2023 Copyright Prices People Pay
+          </span>
         </div>
 
         {/* Social Icons */}
-        <div className="flex grow-0 shrink-0 basis-1/3 max-w-[33.33333%] justify-end">
+        <div className="flex grow-0 shrink-0 basis-full md:basis-1/3 max-w-full md:max-w-[33.33333%] justify-end mt-6 md:mt-0 order-2 md:order-3">
           <a
             href="https://www.facebook.com/pricespeoplepay/?ref=br_rs"
             target="_blank"

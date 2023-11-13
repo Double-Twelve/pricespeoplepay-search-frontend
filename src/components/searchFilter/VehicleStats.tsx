@@ -4,14 +4,14 @@ const VehicleStats = ({
   setDisplayMode,
 }: any) => {
   return (
-    <div className="h-10 bg-white shadow-[0_0_10px_rgba(0,0,0,0.09)] flex items-center mb-[15px] relative">
+    <div className="lg:h-10 bg-[#00000000] lg:bg-white lg:shadow-[0_0_10px_rgba(0,0,0,0.09)] flex flex-wrap justify-between lg:justify-start items-center mb-[15px] relative">
       {/* Vehicle Name */}
-      <div className="bg-[#00a0df] px-[15px] py-[10px] text-white text-sm">
+      <div className="bg-[#00a0df] px-[15px] py-[10px] text-white text-sm w-full lg:w-fit mb-[15px]">
         {filteredCarsStats.make} {filteredCarsStats.family} Stats:
       </div>
 
       {/* Result Stat */}
-      <div className="flex items-center px-[15px] py-[10px]">
+      <div className="w-[48%] lg:w-fit mb-[15px] leading-[1.2] flex items-center lg:px-[15px] lg:py-[10px]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="17"
@@ -31,7 +31,7 @@ const VehicleStats = ({
         </div>
       </div>
 
-      <div className="flex items-center px-[15px] py-[10px]">
+      <div className="w-[48%] lg:w-fit mb-[15px] leading-[1.2] flex items-center lg:px-[15px] lg:py-[10px]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="22.984"
@@ -54,7 +54,7 @@ const VehicleStats = ({
         </div>
       </div>
 
-      <div className="flex items-center px-[15px] py-[10px]">
+      <div className="w-[48%] lg:w-fit mb-[15px] leading-[1.2] flex items-center lg:px-[15px] lg:py-[10px]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="30.094"
@@ -75,7 +75,7 @@ const VehicleStats = ({
         </div>
       </div>
 
-      <div className="flex items-center px-[15px] py-[10px]">
+      <div className="w-[48%] lg:w-fit mb-[15px] leading-[1.2] flex items-center lg:px-[15px] lg:py-[10px]">
         <svg
           id="calendar_today-24px_1_"
           data-name="calendar_today-24px (1)"
@@ -102,7 +102,7 @@ const VehicleStats = ({
         </div>
       </div>
 
-      <div className="absolute right-[10px] flex items-center">
+      <div className="absolute right-[10px] lg:flex items-center hidden">
         <a
           className={`${
             displayMode === 'list' ? 'bg-[#8e969e]' : ''
