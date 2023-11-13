@@ -73,26 +73,24 @@ const FormSchema = z.object({
 const Index = () => {
   const [makeSelectItems, setMakeSelectItems] = useState([
     'Make',
-    'Abarth',
-    'AlfaRomeo',
     'Audi',
-    'Bentley',
     'BMW',
+    'Volvo',
   ])
   const [familySelectItems, setFamilySelectItems] = useState([
     'Family',
-    '124',
-    '595',
-    '695',
+    'A1',
+    'A3',
+    'A5',
   ])
   const [badgesSelectItems, setBadgesSelectItems] = useState([
     'Badges',
     'Spider',
   ])
-  const [initMinYear, setInitMinYear] = useState(1950)
-  const [initMaxYear, setInitMaxYear] = useState(2023)
-  const [minYear, setMinYear] = useState(1950)
-  const [maxYear, setMaxYear] = useState(2023)
+  const [initMinYear, setInitMinYear] = useState(2008)
+  const [initMaxYear, setInitMaxYear] = useState(2022)
+  const [minYear, setMinYear] = useState(2008)
+  const [maxYear, setMaxYear] = useState(2022)
   const [bodyTypeSelectItems, setBodyTypeSelectItems] = useState([
     'Body Type',
     'Roadster',
@@ -189,11 +187,8 @@ const Index = () => {
               control={form.control}
               name="make"
               render={({ field }) => (
-                <FormItem className="w-[13.5%] mt-[10px] mr-[6px]">
-                  <Select
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                  >
+                <FormItem className="w-[13.5%] mt-[10px] mr-[6px] h-[38px]  bg-white">
+                  <Select onValueChange={field.onChange} defaultValue="Audi">
                     <FormControl>
                       <SelectTrigger>
                         <SelectValue placeholder="Make" />
@@ -232,11 +227,8 @@ const Index = () => {
               control={form.control}
               name="family"
               render={({ field }) => (
-                <FormItem className="w-[13.5%] mt-[10px] mr-[6px]">
-                  <Select
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                  >
+                <FormItem className="w-[13.5%] mt-[10px] mr-[6px] h-[38px] bg-white">
+                  <Select onValueChange={field.onChange} defaultValue="A5">
                     <FormControl>
                       <SelectTrigger>
                         <SelectValue placeholder="Family" />
@@ -271,13 +263,13 @@ const Index = () => {
             />
 
             {/* Year */}
-            <div className="w-[13.5%] mt-[10px] mr-[6px]">
+            <div className="w-[13.5%] mt-[10px] mr-[6px] h-[38px] bg-white">
               <Select>
                 <SelectTrigger>
                   <SelectValue placeholder={`${minYear} | ${maxYear}`} />
                 </SelectTrigger>
                 <SelectContent className="bg-white p-[10px] shadow-[0_0_15px_rgba(0,0,0,0.20)] w-[230px]">
-                  <div className="flex justify-between gap-1">
+                  <div className="flex justify-between gap-2">
                     <FormField
                       control={form.control}
                       name="minYear"
@@ -286,7 +278,7 @@ const Index = () => {
                           <FormControl>
                             <Input
                               placeholder={minYear.toString()}
-                              className="p-[10px] text-[13px] border-[#adb5bd] rounded-[4px]"
+                              className="py-1 px-[10px] text-[13px] border-[#adb5bd] rounded-[4px]"
                               {...field}
                             />
                           </FormControl>
@@ -320,6 +312,7 @@ const Index = () => {
                       setMinYear(values[0])
                       setMaxYear(values[1])
                     }}
+                    className="mt-2"
                   />
                 </SelectContent>
               </Select>
@@ -330,7 +323,7 @@ const Index = () => {
               control={form.control}
               name="badges"
               render={({ field }) => (
-                <FormItem className="w-[13.5%] mt-[10px] mr-[6px]">
+                <FormItem className="w-[13.5%] mt-[10px] mr-[6px] h-[38px] bg-white">
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
@@ -363,7 +356,7 @@ const Index = () => {
               control={form.control}
               name="bodyType"
               render={({ field }) => (
-                <FormItem className="w-[13.5%] mt-[10px] mr-[6px]">
+                <FormItem className="w-[13.5%] mt-[10px] mr-[6px] h-[38px] bg-white">
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
@@ -396,7 +389,7 @@ const Index = () => {
               control={form.control}
               name="bodyTypeConfig"
               render={({ field }) => (
-                <FormItem className="w-[13.5%] mt-[10px] mr-[6px]">
+                <FormItem className="w-[13.5%] mt-[10px] mr-[6px] h-[38px] bg-white">
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
@@ -429,7 +422,7 @@ const Index = () => {
               control={form.control}
               name="fuelType"
               render={({ field }) => (
-                <FormItem className="w-[13.5%] mt-[10px] mr-[6px]">
+                <FormItem className="w-[13.5%] mt-[10px] mr-[6px] h-[38px] bg-white">
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
@@ -462,7 +455,7 @@ const Index = () => {
               control={form.control}
               name="transmission"
               render={({ field }) => (
-                <FormItem className="w-[13.5%] mt-[10px] mr-[6px]">
+                <FormItem className="w-[13.5%] mt-[10px] mr-[6px] h-[38px] bg-white">
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
@@ -495,7 +488,7 @@ const Index = () => {
               control={form.control}
               name="engine"
               render={({ field }) => (
-                <FormItem className="w-[13.5%] mt-[10px] mr-[6px]">
+                <FormItem className="w-[13.5%] mt-[10px] mr-[6px] h-[38px] bg-white">
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
@@ -528,7 +521,7 @@ const Index = () => {
               control={form.control}
               name="cylinders"
               render={({ field }) => (
-                <FormItem className="w-[13.5%] mt-[10px] mr-[6px]">
+                <FormItem className="w-[13.5%] mt-[10px] mr-[6px] h-[38px] bg-white">
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
@@ -561,7 +554,7 @@ const Index = () => {
               control={form.control}
               name="division"
               render={({ field }) => (
-                <FormItem className="w-[13.5%] mt-[10px] mr-[6px]">
+                <FormItem className="w-[13.5%] mt-[10px] mr-[6px] h-[38px] bg-white">
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
@@ -594,7 +587,7 @@ const Index = () => {
               control={form.control}
               name="drive"
               render={({ field }) => (
-                <FormItem className="w-[13.5%] mt-[10px] mr-[6px]">
+                <FormItem className="w-[13.5%] mt-[10px] mr-[6px] h-[38px] bg-white">
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
@@ -627,7 +620,7 @@ const Index = () => {
               control={form.control}
               name="seat"
               render={({ field }) => (
-                <FormItem className="w-[13.5%] mt-[10px] mr-[6px]">
+                <FormItem className="w-[13.5%] mt-[10px] mr-[6px] h-[38px] bg-white">
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
@@ -660,7 +653,7 @@ const Index = () => {
               control={form.control}
               name="doors"
               render={({ field }) => (
-                <FormItem className="w-[13.5%] mt-[10px] mr-[6px]">
+                <FormItem className="w-[13.5%] mt-[10px] mr-[6px] h-[38px] bg-white">
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
@@ -689,7 +682,7 @@ const Index = () => {
             />
 
             {/* Odometer */}
-            <div className="w-[13.5%] mt-[10px] mr-[6px]">
+            <div className="w-[13.5%] mt-[10px] mr-[6px] h-[38px] bg-white">
               <Select>
                 <SelectTrigger>
                   <SelectValue placeholder="Odometer" />
@@ -748,7 +741,7 @@ const Index = () => {
               control={form.control}
               name="state"
               render={({ field }) => (
-                <FormItem className="w-[13.5%] mt-[10px] mr-[6px]">
+                <FormItem className="w-[13.5%] mt-[10px] mr-[6px] h-[38px] bg-white">
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
@@ -781,7 +774,7 @@ const Index = () => {
               control={form.control}
               name="saleCategory"
               render={({ field }) => (
-                <FormItem className="w-[13.5%] mt-[10px] mr-[6px]">
+                <FormItem className="w-[13.5%] mt-[10px] mr-[6px] h-[38px] bg-white">
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
@@ -810,7 +803,7 @@ const Index = () => {
             />
 
             {/* Sale Date */}
-            <div className="w-[13.5%] mt-[10px] mr-[6px]">
+            <div className="w-[13.5%] mt-[10px] mr-[6px] h-[38px] bg-white">
               <Select>
                 <SelectTrigger>
                   <SelectValue placeholder="Sale Date" />
@@ -954,7 +947,7 @@ const Index = () => {
               control={form.control}
               name="sort"
               render={({ field }) => (
-                <FormItem className="w-[13.5%] mt-[10px] mr-[6px]">
+                <FormItem className="w-[13.5%] mt-[10px] mr-[6px] h-[38px] bg-white">
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
@@ -997,7 +990,7 @@ const Index = () => {
               control={form.control}
               name="orderBy"
               render={({ field }) => (
-                <FormItem className="w-[13.5%] mt-[10px] mr-[6px]">
+                <FormItem className="w-[13.5%] mt-[10px] mr-[6px] h-[38px] bg-white">
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}

@@ -8,9 +8,9 @@ import {
 } from '../ui/NavigationMenu'
 const Index = () => {
   return (
-    <div className="py-[1.4rem] shadow-[0_0_15px_rgba(99,114,130,0.30)]">
+    <div className="py-[1.4rem] shadow-[0_0_15px_rgba(99,114,130,0.30)] bg-white">
       <div className="flex items-center justify-between w-full max-w-[1200px] px-[10px] mx-auto">
-        {/* site logo */}
+        {/* Site logo */}
         <a className="-mt-4">
           <svg width="273px" height="66px" viewBox="0 0 273 66">
             <path
@@ -28,7 +28,7 @@ const Index = () => {
           </svg>
         </a>
         <div className="flex items-center">
-          {/* navigation menu */}
+          {/* Navigation menu */}
           <NavigationMenu>
             <NavigationMenuList>
               {navigationMenuItems.map((item, index) => {
@@ -36,7 +36,7 @@ const Index = () => {
                   return (
                     <NavigationMenuItem
                       key={index}
-                      className="relative group/submenu"
+                      className="relative !mx-0 group/submenu"
                     >
                       <NavigationMenuLink className="relative pr-6 pb-[10px] mx-[0.8rem] text-[15px] leading-6 font-medium text-black after:content-[''] after:absolute after:top-1 after:right-[5px] after:-rotate-45 after:w-2 after:h-2 after:border-l-2 after:border-l-[#555] after:border-b-2 after:border-b-[#555]">
                         {item.name}
@@ -46,11 +46,11 @@ const Index = () => {
                           return (
                             <NavigationMenuItem
                               key={subIndex}
-                              className="!ml-0 pt-[7px] pb-[10px]"
+                              className="!mx-0 "
                             >
                               <NavigationMenuLink
                                 href={subItem.href}
-                                className="font-medium text-[14px] text-black"
+                                className="block pt-[7px] pb-[10px] text-[14px] text-black "
                               >
                                 {subItem.name}
                               </NavigationMenuLink>
@@ -62,7 +62,7 @@ const Index = () => {
                   )
                 } else {
                   return (
-                    <NavigationMenuItem key={index}>
+                    <NavigationMenuItem key={index} className="!mx-0">
                       <NavigationMenuLink
                         href={item.href}
                         className="pb-[5px] mx-[0.8rem] font-medium text-[15px] text-black"
