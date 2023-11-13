@@ -208,7 +208,9 @@ const Filter = ({
   }, [family])
 
   useEffect(() => {
-    onApplyFilter()
+    if (page > 1) {
+      onApplyFilter()
+    }
   }, [page])
 
   // Get eligible cars based on these filters
