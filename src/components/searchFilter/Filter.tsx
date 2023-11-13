@@ -22,12 +22,14 @@ import { Slider } from '../ui/Slider'
 interface Props {
   page: number
   filteredCars: any
+  setPage: Function
   setFilteredCars: Function
   setFilteredCarsStats: Function
 }
 
 const Filter = ({
   page,
+  setPage,
   filteredCars,
   setFilteredCars,
   setFilteredCarsStats,
@@ -94,6 +96,7 @@ const Filter = ({
     'Desc',
   ])
   const [search, setSearch] = useState('')
+  const [loadMore, setLoadMore] = useState(false)
 
   // When make is selected, send a request to get the corresponding family
   useEffect(() => {
@@ -209,6 +212,7 @@ const Filter = ({
 
   useEffect(() => {
     if (page > 1) {
+      setLoadMore(true)
       onApplyFilter()
     }
   }, [page])
@@ -217,7 +221,7 @@ const Filter = ({
   const onApplyFilter = () => {
     const fetchCarsData = async () => {
       try {
-        let query = `?Make=${make}&Model=${family}&min_year=${minYear}&max_year=${maxYear}&min_odometer=${minOdometer}&max_odometer=${maxOdometer}&page=${page}&sortBy=${orderBy}&orderBy=${orderBy}&min_sold_date=${minSoldDate}&max_sold_date=${maxSoldDate}`
+        let query = `?Make=${make}&Model=${family}&min_year=${minYear}&max_year=${maxYear}&min_odometer=${minOdometer}&max_odometer=${maxOdometer}&page=${page}&sortBy=${sort}&orderBy=${orderBy}&min_sold_date=${minSoldDate}&max_sold_date=${maxSoldDate}`
         if (engine.trim() !== '') {
           query += `&EngineDescription=${engine}`
         }
@@ -253,11 +257,19 @@ const Filter = ({
           `${process.env.REACT_APP_BACKEND_URL}/car/search-all${query}`
         )
         const jsonData = await response.json()
-        setFilteredCars([...filteredCars, ...jsonData.carData])
+        if (loadMore) {
+          setLoadMore(false)
+          setFilteredCars([...filteredCars, ...jsonData.carData])
+        } else {
+          setFilteredCars(jsonData.carData)
+        }
         setFilteredCarsStats(jsonData.carStatsData[0])
       } catch (error) {
         console.error('Error fetching data:', error)
       }
+    }
+    if (!loadMore) {
+      setPage(1)
     }
     if (make !== '' && family !== '') {
       fetchCarsData()

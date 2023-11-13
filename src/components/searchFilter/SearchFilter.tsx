@@ -18,6 +18,7 @@ const SearchFilter = () => {
       {/* Filter */}
       <Filter
         page={page}
+        setPage={setPage}
         filteredCars={filteredCars}
         setFilteredCars={setFilteredCars}
         setFilteredCarsStats={setFilteredCarsStats}
@@ -66,15 +67,15 @@ const SearchFilter = () => {
       {/* List View */}
       {displayMode === 'list' &&
         width > 1024 &&
-        filteredCars?.map((item) => {
-          return <ListView car={item}></ListView>
+        filteredCars?.map((item, index) => {
+          return <ListView car={item} key={index}></ListView>
         })}
 
       {/* Grid View */}
       {(displayMode === 'grid' || width <= 1024) && (
         <div className="flex flex-wrap -mx-[10px]">
-          {filteredCars?.map((item) => {
-            return <GridView car={item}></GridView>
+          {filteredCars?.map((item, index) => {
+            return <GridView car={item} key={index}></GridView>
           })}
         </div>
       )}
