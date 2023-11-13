@@ -7,7 +7,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from '../ui/NavigationMenu'
-const Index = () => {
+const Header = () => {
   const [mobileNavigationOpen, setMobileNavigationOpen] = useState(false)
 
   return (
@@ -181,4 +181,4 @@ const Index = () => {
   )
 }
 
-export default Index
+export default Header

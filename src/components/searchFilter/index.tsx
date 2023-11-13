@@ -6,7 +6,7 @@ import GridView from './GridView'
 import ListView from './ListView'
 import VehicleStats from './VehicleStats'
 
-const Index = () => {
+const SearchFilter = () => {
   const [page, setPage] = useState(1)
   const [filteredCars, setFilteredCars] = useState([])
   const [filteredCarsStats, setFilteredCarsStats] = useState()
@@ -94,4 +94,4 @@ const Index = () => {
   )
 }
 
-export default Index
+export default SearchFilter

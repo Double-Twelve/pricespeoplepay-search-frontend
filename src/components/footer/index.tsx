@@ -1,4 +1,4 @@
-const Index = () => {
+const Footer = () => {
   return (
     <div className="mt-10 py-[1.5rem] border-t border-t-[#dddddd]">
       <div className="w-full max-w-[1200px] mx-auto flex items-center flex-col md:flex-row">
@@ -101,4 +101,4 @@ const Index = () => {
   )
 }
 
-export default Index
+export default Footer
