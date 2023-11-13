@@ -2,8 +2,6 @@
 
 This project aims to replicate the functionality of the PricesPeoplePay website(https://pricespeoplepay.com.au/search?make=AUDI&model=A5), allowing users to search and filter cars based on various criteria.
 
-Project address: https://pricespeoplepay-search-frontend.vercel.app/
-
 ## Tech Stack
 
 - React
