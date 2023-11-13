@@ -1,9 +1,13 @@
-const VehicleStats = () => {
+const VehicleStats = ({
+  filteredCarsStats,
+  displayMode,
+  setDisplayMode,
+}: any) => {
   return (
     <div className="h-10 bg-white shadow-[0_0_10px_rgba(0,0,0,0.09)] flex items-center mb-[15px] relative">
       {/* Vehicle Name */}
       <div className="bg-[#00a0df] px-[15px] py-[10px] text-white text-sm">
-        Abarth 124 Stats:
+        {filteredCarsStats.make} {filteredCarsStats.family} Stats:
       </div>
 
       {/* Result Stat */}
@@ -22,7 +26,9 @@ const VehicleStats = () => {
             fill="#8e969e"
           ></path>
         </svg>
-        <div className="ml-[10px] text-sm">Records: 1</div>
+        <div className="ml-[10px] text-sm">
+          Records: {filteredCarsStats.total}
+        </div>
       </div>
 
       <div className="flex items-center px-[15px] py-[10px]">
@@ -41,7 +47,7 @@ const VehicleStats = () => {
           ></path>
         </svg>
         <div className="ml-[10px] text-sm">
-          Avg Price:{' '}
+          Avg Price:
           <a href="" className="text-[#00a0df] no-underline">
             Subscribe to Reveal Price
           </a>
@@ -64,7 +70,9 @@ const VehicleStats = () => {
             ></path>
           </g>
         </svg>
-        <div className="ml-[10px] text-sm">Avg KM: 48,306 kms</div>
+        <div className="ml-[10px] text-sm">
+          Avg KM: {filteredCarsStats.avgKm} kms
+        </div>
       </div>
 
       <div className="flex items-center px-[15px] py-[10px]">
@@ -89,11 +97,18 @@ const VehicleStats = () => {
             fill="#8e969e"
           ></path>
         </svg>
-        <div className="ml-[10px] text-sm">Avg Age: 76 months</div>
+        <div className="ml-[10px] text-sm">
+          Avg Age: {Math.floor(filteredCarsStats.avgAge)} months
+        </div>
       </div>
 
       <div className="absolute right-[10px] flex items-center">
-        <a className="bg-[#8e969e] rounded-tl-[2px] rounded-bl-[2px] w-7 h-[25px] border border-[#8e969e] flex justify-center items-center">
+        <a
+          className={`${
+            displayMode === 'list' ? 'bg-[#8e969e]' : ''
+          }  rounded-tl-[2px] rounded-bl-[2px] w-7 h-[25px] border border-[#8e969e] flex justify-center items-center`}
+          onClick={() => setDisplayMode('list')}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="13"
@@ -105,11 +120,16 @@ const VehicleStats = () => {
               data-name="Path 20"
               d="M8.159,0H5.041V13H8.159ZM13.2,0H10.081V13H13.2ZM3.119,13V0H0V13Z"
               transform="translate(13) rotate(90)"
-              fill="white"
+              fill={displayMode === 'list' ? 'white' : '#8e969e'}
             ></path>
           </svg>
         </a>
-        <a className="rounded-tr-[2px] rounded-br-[2px] w-7 h-[25px] border border-[#8e969e] flex justify-center items-center">
+        <a
+          className={`${
+            displayMode === 'grid' ? 'bg-[#8e969e]' : ''
+          } rounded-tr-[2px] rounded-br-[2px] w-7 h-[25px] border border-[#8e969e] flex justify-center items-center`}
+          onClick={() => setDisplayMode('grid')}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="11"
@@ -121,7 +141,7 @@ const VehicleStats = () => {
               data-name="Path 18"
               d="M4,10.308H9V5H4ZM4,16.5H9V11.192H4Zm6,0h5V11.192H10Zm0-6.192h5V5H10Z"
               transform="translate(-4 -5)"
-              fill="#8e969e"
+              fill={displayMode === 'grid' ? 'white' : '#8e969e'}
             ></path>
           </svg>
         </a>

@@ -1,28 +1,50 @@
-const ListView = () => {
+import convertDate from '../../utils/convertDate'
+
+interface Props {
+  car: any
+}
+
+const ListView = ({ car }: Props) => {
   return (
     <div className="p-[15px] bg-white rounded-[5px] shadow-[0_0_5px_rgb(0,0,0,0.05)] flex justify-between mb-[15px]">
       <div>
         <h2 className="mb-2 text-sm font-normal">
-          <strong className="font-semibold">Audi A5 2015</strong> 8T MY15
-          Sportback 5dr S tronic 7sp quattro 2.0T
+          <strong className="font-semibold">{car.VehicleDescription}</strong>
+          {car.Description}
         </h2>
         <div className="flex items-center">
           <div className="px-[10px] py-[5px] bg-[#f5f5f5] rounded-[4px] mr-2 text-[11px] leading-[1.1]">
-            Dealership
+            {car.SaleCategory}
           </div>
           <div className="px-[10px] py-[5px] bg-[#f5f5f5] rounded-[4px] mr-2 text-[11px] leading-[1.1]">
-            61,624 Kms
+            {car.Odometer.toLocaleString()} Kms
           </div>
           <div className="px-[10px] py-[5px] bg-[#f5f5f5] rounded-[4px] mr-2 text-[11px] leading-[1.1]">
-            Sold in Canning Vale (WA)
+            {car.Branch}
           </div>
           <div className="mr-[10px] text-[12px] flex items-center">
-            <img
-              src="./good-condition.png"
-              alt="Good"
-              className="max-w-[30px] mr-2"
-            ></img>
-            Above Average Condition
+            {car.OverallCondition === 'Excellent' ||
+            car.OverallCondition === 'Above Average' ||
+            car.OverallCondition === 'Good' ? (
+              <img
+                src="./good-condition.png"
+                alt="Good"
+                className="max-w-[30px] mr-2"
+              ></img>
+            ) : car.OverallCondition === 'Average' ? (
+              <img
+                src="./average-condition.png"
+                alt="average"
+                className="max-w-[30px] mr-2"
+              ></img>
+            ) : (
+              <img
+                src="./poor-condition.png"
+                alt="poor"
+                className="max-w-[30px] mr-2"
+              ></img>
+            )}
+            {car.OverallCondition} Condition
           </div>
           <div className="mr-[0.5rem] text-[12px] flex items-center">
             <svg
@@ -46,7 +68,7 @@ const ListView = () => {
                 fill="#0098dc"
               ></path>
             </svg>
-            Sold Nov 2023
+            Sold {convertDate(car.Sold_Date)}
           </div>
         </div>
       </div>
