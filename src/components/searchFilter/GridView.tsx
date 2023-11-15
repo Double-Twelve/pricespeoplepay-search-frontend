@@ -1,4 +1,4 @@
-import convertDate from '../../utils/convertDate'
+import { convertToSoldDateFormat } from '../../utils/convertDate'
 
 interface Props {
   car: any
@@ -11,7 +11,7 @@ const GridView = ({ car }: Props) => {
         <div>
           <h2 className="mb-2 text-sm font-normal">
             <strong className="font-semibold">{car.VehicleDescription}</strong>
-            {car.Description}
+            &nbsp;{car.Description}
           </h2>
           <div className="flex flex-col">
             <div className="flex">
@@ -72,7 +72,7 @@ const GridView = ({ car }: Props) => {
                     fill="#0098dc"
                   ></path>
                 </svg>
-                Sold {convertDate(car.Sold_Date)}
+                Sold {convertToSoldDateFormat(car.Sold_Date)}
               </div>
             </div>
           </div>

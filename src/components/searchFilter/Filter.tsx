@@ -2,6 +2,7 @@ import { format, sub } from 'date-fns'
 import { CalendarIcon } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { cn } from '../../lib/utils'
+import { convertToMysqlDateFormat } from '../../utils/convertDate'
 import { Button } from '../ui/Button'
 import { Calendar } from '../ui/Calendar'
 import { Input } from '../ui/Input'
@@ -221,7 +222,9 @@ const Filter = ({
   const onApplyFilter = () => {
     const fetchCarsData = async () => {
       try {
-        let query = `?Make=${make}&Model=${family}&min_year=${minYear}&max_year=${maxYear}&min_odometer=${minOdometer}&max_odometer=${maxOdometer}&page=${page}&sortBy=${sort}&orderBy=${orderBy}&min_sold_date=${minSoldDate}&max_sold_date=${maxSoldDate}`
+        let query = `?Make=${make}&Model=${family}&min_year=${minYear}&max_year=${maxYear}&min_odometer=${minOdometer}&max_odometer=${maxOdometer}&page=${page}&sortBy=${sort}&orderBy=${orderBy}&min_sold_date=${convertToMysqlDateFormat(
+          minSoldDate
+        )}&max_sold_date=${convertToMysqlDateFormat(maxSoldDate)}`
         if (engine.trim() !== '') {
           query += `&EngineDescription=${engine}`
         }

@@ -1,4 +1,4 @@
-const convertDate = (date: string) => {
+const convertToSoldDateFormat = (date: string) => {
   const dateObject = new Date(date)
   const monthNames = [
     'Jan',
@@ -19,4 +19,11 @@ const convertDate = (date: string) => {
   return `${month} ${year}`
 }
 
-export default convertDate
+const convertToMysqlDateFormat = (date: Date) => {
+  const year = date.getFullYear()
+  const month = ('0' + (date.getMonth() + 1)).slice(-2)
+  const day = ('0' + date.getDate()).slice(-2)
+  return `${year}-${month}-${day}`
+}
+
+export { convertToMysqlDateFormat, convertToSoldDateFormat }
