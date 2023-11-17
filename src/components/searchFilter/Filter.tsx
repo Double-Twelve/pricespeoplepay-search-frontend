@@ -261,7 +261,8 @@ const Filter = ({
           `${process.env.REACT_APP_BACKEND_URL}/car/search-all${query}`
         )
         const jsonData = await response.json()
-        if (loadMore) {
+        console.log(page)
+        if (page > 1) {
           setLoadMore(false)
           setFilteredCars([...filteredCars, ...jsonData.carData])
         } else {
