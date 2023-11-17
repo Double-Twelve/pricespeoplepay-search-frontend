@@ -1,29 +1,22 @@
+import { format } from 'date-fns'
+
 const convertToSoldDateFormat = (date: string) => {
-  const dateObject = new Date(date)
-  const monthNames = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-  ]
-  const month = monthNames[dateObject.getUTCMonth()]
-  const year = dateObject.getUTCFullYear()
-  return `${month} ${year}`
+  const result = format(new Date(date), 'MMM yyyy')
+  return result
 }
 
 const convertToMysqlDateFormat = (date: Date) => {
-  const year = date.getFullYear()
-  const month = ('0' + (date.getMonth() + 1)).slice(-2)
-  const day = ('0' + date.getDate()).slice(-2)
-  return `${year}-${month}-${day}`
+  const result = format(date, 'yyyy-MM-dd')
+  return result
 }
 
-export { convertToMysqlDateFormat, convertToSoldDateFormat }
+const convertToCarBasicInformationFormat = (date: string) => {
+  const result = format(new Date(date), 'EEEE, MMMM d, yyyy')
+  return result
+}
+
+export {
+  convertToCarBasicInformationFormat,
+  convertToMysqlDateFormat,
+  convertToSoldDateFormat,
+}

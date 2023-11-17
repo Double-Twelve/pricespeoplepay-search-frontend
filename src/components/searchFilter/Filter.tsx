@@ -98,6 +98,7 @@ const Filter = ({
   ])
   const [search, setSearch] = useState('')
   const [loadMore, setLoadMore] = useState(false)
+  const [filterDrawerOpen, setFilterDrawerOpen] = useState(false)
 
   // When make is selected, send a request to get the corresponding family
   useEffect(() => {
@@ -1105,8 +1106,7 @@ const Filter = ({
             </Button>
             <Button
               onClick={() =>
-                (window.location.href =
-                  'https://pricespeoplepay.com.au/pricing?make=ABAR&model=124')
+                (window.location.href = `https://pricespeoplepay.com.au/pricing?make=${make}&model=${family}`)
               }
               className="h-[38px] ml-4 bg-[#ff5a60] hover:bg-[#ff5a60] hover:border-[#ff5a60] border font-semibold px-3 py-[0.375rem] text-[1rem] leading-6 border-[#ff5a60] text-white rounded-[0.2rem] shadow-[inset_0_1px_0_rgba(255,255,255,0.15),_0_1px_1px_rgba(0,0,0,0.075)]"
             >
@@ -1117,8 +1117,16 @@ const Filter = ({
       </div>
 
       {/* Mobile View */}
-      <div className="drawer lg:hidden  -mt-[15px]">
-        <input id="my-drawer" type="checkbox" className="drawer-toggle" />
+      <div className="drawer lg:hidden -mt-[15px]">
+        <input
+          id="my-drawer"
+          type="checkbox"
+          className="drawer-toggle"
+          checked={filterDrawerOpen}
+          onChange={() => {
+            setFilterDrawerOpen(!filterDrawerOpen)
+          }}
+        />
         <div className="drawer-content">
           {/* Page content here */}
           <label
@@ -2032,9 +2040,9 @@ const Filter = ({
 
             {/* Search */}
             <li>
-              <div className="w-[240px] mb-[15px] h-[38px] block mt-[11px] mr-[10px] py-1 bg-white border border-[#adb5bd] rounded-[4px]">
+              <div className="w-[240px] mb-[15px] -ml-1 pl-0 h-[38px] block mt-[11px] mr-[10px] py-1 bg-white border border-[#adb5bd] rounded-[4px]">
                 <Input
-                  className="h-full border-none placeholder:text-[#aaa]"
+                  className="h-full border-none placeholder:text-[#aaa] px-[0.75em]"
                   placeholder="e.g. Metallic Paint,Power front seats,Power Sunroof, ..."
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
@@ -2046,7 +2054,10 @@ const Filter = ({
               <div className="flex flex-col items-start px-0 mt-2">
                 <Button
                   className="w-[120px] h-[38px] bg-[#00a0df] hover:bg-[#0085b9] hover:border-[#0085b9] border font-normal px-3 py-[0.375rem] text-[1rem] leading-6 border-[#00a0df] text-white rounded-[0.2rem] shadow-[inset_0_1px_0_rgba(255,255,255,0.15),_0_1px_1px_rgba(0,0,0,0.075)]"
-                  onClick={onApplyFilter}
+                  onClick={() => {
+                    setFilterDrawerOpen(!filterDrawerOpen)
+                    onApplyFilter()
+                  }}
                 >
                   Apply Filter
                 </Button>

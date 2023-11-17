@@ -132,11 +132,10 @@ const Header = () => {
               {navigationMenuItems.map((item, index) => {
                 if (item.child) {
                   return (
-                    <>
+                    <div key={index}>
                       <a
                         className="text-[16.8px] md:text-[18px] py-[0.8rem] text-black block"
                         href={item.href}
-                        key={index}
                       >
                         {item.name}
                       </a>
@@ -151,7 +150,7 @@ const Header = () => {
                           </a>
                         )
                       })}
-                    </>
+                    </div>
                   )
                 } else {
                   return (

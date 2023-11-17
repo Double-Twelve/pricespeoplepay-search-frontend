@@ -6,9 +6,47 @@ import GridView from './GridView'
 import ListView from './ListView'
 import VehicleStats from './VehicleStats'
 
+export interface Car {
+  id: number
+  SaleCategory: string
+  Make: string
+  Model: string
+  Branch: string
+  Sold_Amount: number
+  Age_Comp_Months: number
+  Odometer: number
+  OverallCondition: string
+  YearGroup: number
+  Sold_Date: string
+  FuelTypeDescription: string
+  GearTypeDescription: string
+  Description: string
+  BodyStyleDescription: string
+  drivedescription: string
+  VehicleDescription: string
+  ConditionDescription?: string
+  OptionsAccessories?: string
+  LogBooks?: string
+  KeysStatus?: string
+  TyreFrontNearCondition?: string
+  TyreFrontOffCondition?: string
+  TyreRearNearCondition?: string
+  TyreRearOffCondition?: string
+  TyreSpareCondition?: string
+  Colour: string
+  EngineDescription: string
+  GearNum: number
+  BadgeDescription?: string
+  FuelDeliveryDescription: string
+  InductionDescription: string
+  OwnerManualStatus?: string
+  SaleType?: any
+  Division: string
+}
+
 const SearchFilter = () => {
   const [page, setPage] = useState(1)
-  const [filteredCars, setFilteredCars] = useState([])
+  const [filteredCars, setFilteredCars] = useState<Car[]>([])
   const [filteredCarsStats, setFilteredCarsStats] = useState()
   const [displayMode, setDisplayMode] = useState('list')
   const { width, height } = useWindowSize()

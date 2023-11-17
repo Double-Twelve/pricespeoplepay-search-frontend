@@ -1,4 +1,5 @@
 import { convertToSoldDateFormat } from '../../utils/convertDate'
+import VehicleConditionReport from './VehicleConditionReport'
 
 interface Props {
   car: any
@@ -84,9 +85,7 @@ const GridView = ({ car }: Props) => {
           >
             Subscribe to Reveal Price
           </a>
-          <a className="ml-[10px] text-[#00a0df] border border-[#00a0df] rounded-[0.2rem] px-2 py-1 text-sm">
-            See More
-          </a>
+          <VehicleConditionReport car={car}></VehicleConditionReport>
         </div>
       </div>
     </div>

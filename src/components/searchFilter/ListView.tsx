@@ -1,7 +1,9 @@
 import { convertToSoldDateFormat } from '../../utils/convertDate'
+import { Car } from './SearchFilter'
+import VehicleConditionReport from './VehicleConditionReport'
 
 interface Props {
-  car: any
+  car: Car
 }
 
 const ListView = ({ car }: Props) => {
@@ -79,9 +81,7 @@ const ListView = ({ car }: Props) => {
         >
           Subscribe to Reveal Price
         </a>
-        <a className="ml-[10px] text-[#00a0df] border border-[#00a0df] rounded-[0.2rem] px-2 py-1 text-sm">
-          See More
-        </a>
+        <VehicleConditionReport car={car}></VehicleConditionReport>
       </div>
     </div>
   )

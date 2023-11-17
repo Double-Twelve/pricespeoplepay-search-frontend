@@ -4,7 +4,7 @@ const VehicleStats = ({
   setDisplayMode,
 }: any) => {
   return (
-    <div className="lg:h-10 bg-[#00000000] lg:bg-white lg:shadow-[0_0_10px_rgba(0,0,0,0.09)] flex flex-wrap justify-between lg:justify-start items-center mb-[15px] relative">
+    <div className="lg:h-10 bg-[#00000000] lg:bg-white lg:shadow-[0_0_10px_rgba(0,0,0,0.09)] flex flex-wrap justify-between lg:justify-start items-center mb-[15px] lg:relative">
       {/* Vehicle Name */}
       <div className="bg-[#00a0df] px-[15px] py-[10px] text-white text-sm w-full lg:w-fit mb-[15px]">
         {filteredCarsStats.make} {filteredCarsStats.family} Stats:
