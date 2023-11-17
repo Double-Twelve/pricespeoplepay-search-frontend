@@ -214,7 +214,7 @@ const Filter = ({
 
   useEffect(() => {
     if (page > 1) {
-      setLoadMore(true)
+      setLoadMore(() => true)
       onApplyFilter()
     }
   }, [page])
